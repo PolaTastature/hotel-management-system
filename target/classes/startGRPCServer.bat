@@ -1,0 +1,1 @@
+java -cp raf-pds-rpc-1.0.jar;lib/* test2.GRPCServer

@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "test1";
+
+
+
+
+service HotelService {
+  
+  rpc Upit(UpitZaHotele) returns (stream Hotel) {}
+
+  
+  
+
+	rpc Rezervisi(RezervacijaInfo) returns(Rezervacija) {}
+	rpc otkaziRezervaciju(RezervacijaInfo) returns(stream Rezervacija){}
+
+}
+
+
+
+
+
+
+
+
+message Hotel {
+    string ime = 1;
+    int32 zvezdice = 2;
+    int32 udaljenosti_od_centra = 3;
+    int32 broj_slobodnih_mesta = 4;
+    int32 trenutna_cena = 5;
+    string grad = 6;
+    int32 id = 7;
+    int32 broj_dana_boravka = 10;
+    int64 pocetakBoravka=11;
+    int32 interniRacun=12;
+    int32 provizniRacun=13;
+    int64 datumPlacanja=14;
+}
+message RezervacijaInfo{
+	Hotel hotel=1;
+	int64 pocetakBoravka=2;
+	int32 brojDana=3;
+}
+
+
+message UpitZaHotele {
+  string grad = 1;
+  int32 max_udaljenost = 2;
+  int32 min_zvezde = 3;
+}
+
+
+message Rezervacija{
+	int32 id=1;
+	Hotel hotel=2;
+	int64 pocetakBoravka=3;
+	int32 brojDana=4;
+	int64 rokZaPlacanje=5;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
